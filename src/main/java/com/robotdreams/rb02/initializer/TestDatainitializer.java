@@ -30,29 +30,29 @@ public class TestDatainitializer implements ApplicationRunner {
     public void run(ApplicationArguments args) throws Exception {
         System.out.println("Start....");
 
-        Student student1 = new Student("Ali", new Date(), "Ankara", "Erkek");
-        Student student2 = new Student("Veli", new Date(), "Ankara", "Erkek");
-        Student student3 = new Student("Mehmet", new Date(), "Ankara", "Erkek");
+        Student student1 = new Student("John Doe", new Date(), "123 Main St", "Male");
+        Student student2 = new Student("Jane Smith", new Date(), "456 Elm St", "Female");
 
-        Course course1 = new Course("Matematik", "Math101", "50");
-        Course course2 = new Course("Fizik", "Math101", "50");
-        Course course3 = new Course("Kimya", "Math101", "50");
+        Course course1 = new Course("Math 101", "MATH101", "3");
+        Course course2 = new Course("Physics 202", "PHYS202", "4");
 
-        Instructors visitingResearcher1 = new VisitingResearcher(5.5);
-        Instructors visitingResearcher2 = new VisitingResearcher(7.5);
-        Instructors permanentResearcher1 = new PermanentResearcher(10.0);
-        Instructors permanentResearcher2 = new PermanentResearcher(10.3);
+        PermanentResearcher researcher1 = new PermanentResearcher("Dr. Smith", "789 Oak St", "555-1234", 60000.0);
+        PermanentResearcher researcher2 = new PermanentResearcher("Dr. Johnson", "987 Maple St", "555-5678", 70000.0);
 
-        student1.setCourseList((Set<Course>) course1);
-        student2.setCourseList((Set<Course>) course2);
-        visitingResearcher1.setCourseList((List<Course>) course1);
-        permanentResearcher1.setCourseList((List<Course>) course2);
+        VisitingResearcher visitor1 = new VisitingResearcher("Prof. Brown", "567 Pine St", "555-4321", 50.0);
+        VisitingResearcher visitor2 = new VisitingResearcher("Prof. Davis", "654 Birch St", "555-8765", 55.0);
 
-        visitingResearcher1.getCourseList().add(course1);
-        permanentResearcher1.getCourseList().add(course2);
+        student1.getCourseList().add(course1);
+        student1.getCourseList().add(course2);
+        student2.getCourseList().add(course1);
 
+        course1.getStudents().add(student1);
+        course1.getStudents().add(student2);
+        course2.getStudents().add(student1);
 
 
+        researcher1.getCourseList().add(course1);
+        visitor1.getCourseList().add(course2);
 
 
         System.out.println("Finish....");
