@@ -6,4 +6,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface InstructorsRepository extends JpaRepository<Instructors, Long> {
+
+    Instructors deleteInstructorsByPhoneNumber(String phoneNumber);
+
 }
