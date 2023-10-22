@@ -1,5 +1,7 @@
 package com.robotdreams.rb02.mapper;
 
+import com.robotdreams.rb02.models.dto.StudentDTO;
+
 public interface BaseMapper<T, S> {
-    T map(S model, Object... params);
+    StudentDTO map(S model, Object... params);
 }
